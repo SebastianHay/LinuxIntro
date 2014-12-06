@@ -1,0 +1,15 @@
+xzcat /home/acc*.xz | cut -f1 -d" " | sort | uniq | grep out 10. ::1 > ip.lst 
+
+cat /home/access_log | cut -f1 -d" " | sort | uniq | tail -50 >> ip.lst
+
+one last sort uniq
+curl -s freegeoip.net/cvs/$x 
+
+
+sqlite3 ipvisitors.sqlite < mkiptbl.sql3 
+rm ipvisitors.sqlite 
+sqlite3 ipvisitors.sqlite 
+bash getip.info > first.pass
+cat first.pass | tr ',' '|' | tr --delete '"' > last.pass
+echo ".import last.pass visitors" | sqlite3 ipvisitors.sqlite 
+echo "select * from visitors;"  | sqlite3 ipvisitors.sqlite 

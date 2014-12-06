@@ -1,0 +1,29 @@
+#!/bin/bash
+#geoip2
+# hays
+
+#mkiptbl.sql3
+
+# the following code unzips and cleans up the ip address information
+
+unxz -d *.xz > my_access_log
+sort -u $HOME/inclass/my_access_log | awk '{0rint $1}' | uniq -u > geoip1
+
+# this function sends the collected ip addresses from the previous file and gathers location data into a file
+
+ipaddr=$(cat geoip1)
+for x in $ipaddr
+do
+ echo $(curl -s http://freegeoip.net/csv/$x) >> first.pass
+done
+
+# this next command line adjusts punctuation and saves these changes in a new file
+
+cat first.pass | tr ',' '|' > last.pass
+
+# finally we use sqlite to store the data in a premade table
+
+echo ".import last.pass visitors" | sqlite3 ipvisitors.sqlite
+
+echo "select ip,latitude,longitude from visitors;"  | sqlite3 ipvisitors.sqlite
+

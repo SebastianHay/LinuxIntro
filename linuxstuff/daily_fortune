@@ -1,0 +1,7 @@
+#!/bin/bash
+# daily_fortune
+# hays
+fortune > /home/hays/inclass/fortune.txt
+/home/hays/inclass/fortune_mkweb
+cat fortune.txt | mail -s"Daily Fortune" shay2@student.yosemite.edu
+date +%Y%m%d

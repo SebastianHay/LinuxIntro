@@ -1,0 +1,24 @@
+nux test commands
+
+READ VAR # take in user input
+echo $VAR >> $VAR # puts input into file named after the input
+
+cat - > file # puts keyboard input into a file exit with ctrl-c
+
+Read x1 
+cat >$x1<<EoF # create a file called input and contains the input; is a heredoc so it could mean anything
+$x1
+EoF
+
+echo * # in case you lose your shell it can help show you where you are
+echo "*" # to show 
+
+echo "**" | wc -c # word count will be 3 because of the line feed
+
+###############################################################################################################
+
+aws.amazon.com/console/ # temporarily rent resources/services for one-time/unique problems; cloud processing, storage, etc.
+
+mkdocs build --clean # rebuilds everything
+
+

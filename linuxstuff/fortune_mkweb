@@ -1,0 +1,7 @@
+#!/bin/bash
+# fortune_mkweb
+# hays
+
+{ echo "$HDR";
+cat "$HOME"/inclass/fortune.txt;
+echo "$FTR"; } > "$HOME"/public_html/fortune.html

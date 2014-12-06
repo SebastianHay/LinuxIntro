@@ -1,0 +1,19 @@
+#!/bin/bash
+# args1
+clear
+echo $_
+#gives last argument of last ran command
+echo $$
+#gives process id of current sessio // name of script
+echo $*
+#everything at the command line // all command line arguments
+echo $#
+#number of arguments on the command line // count command line arguments
+echo $?
+#returns how many outputs // 0 = success 1 = fail
+echo $0
+#gives name of the running script
+shift
+#move command line arguments to the left (first argument gets skipped)
+echo $1 $2 $3 $4 $5 $6 $7 $8 $9 
+
